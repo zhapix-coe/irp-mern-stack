@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Element</title>
+  <script>
+    function addItem() {
+      var newPara = document.createElement("p");
+      newPara.innerText = "New paragraph added!";
+      document.body.appendChild(newPara);
+    }
+  </script>
+</head>
+<body>
+
+  <button onclick="addItem()">Add Paragraph</button>
+
+</body>
+</html>

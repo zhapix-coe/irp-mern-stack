@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Change Image Attribute</title>
+  <script>
+    function changeImage() {
+      document.getElementById("img").src =
+        "https://picsum.photos/200";
+    }
+  </script>
+</head>
+<body>
+
+  <h3>Click button to change image</h3>
+
+  <img id="img"
+       src="https://picsum.photos/100"
+       alt="sample image">
+
+  <br><br>
+
+  <button onclick="changeImage()">Change Image</button>
+
+</body>
+</html>

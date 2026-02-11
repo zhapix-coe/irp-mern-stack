@@ -1,0 +1,239 @@
+<html>
+  <head>
+    <title>Intern Management System</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+      }
+
+      .intern-form-section {
+        border: solid 0.5px;
+
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      input {
+        width: 100%;
+        margin-bottom: 15px;
+        border: solid 0.5px;
+        height: 30px;
+        border-radius: 5px;
+      }
+
+      input[type='radio'] {
+        width: 30px;
+        height: 15px;
+      }
+
+      .btn-panel {
+        display: flex;
+        flex-direction: row-reverse;
+      }
+      .btn-panel button {
+        height: 30px;
+        width: 75px;
+        border-radius: 5px;
+        border: solid 0.05px;
+        margin-left: 5px;
+      }
+      .btn-panel button:first-child {
+        background-color: #ddd;
+      }
+      .btn-panel button:last-child {
+        background-color: rgba(0, 0, 255, 0.305);
+      }
+
+      .intern-table-section {
+        border: solid 0.5px;
+        padding: 10px;
+        margin-top: 20px;
+        border-radius: 10px;
+      }
+
+      table {
+        border: solid;
+        width: 100%;
+      }
+
+      th,
+      td {
+        border: solid 1px;
+        padding: 5px;
+        font-size: 12px;
+      }
+
+      .footer-section {
+        margin: 20px;
+      }
+
+      .footer-note {
+        display: flex;
+        justify-content: center;
+        margin: 50px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <header>
+        <h1>Intern Management System</h1>
+      </header>
+
+      <section class="intern-form-section">
+        <h3>Intern Form</h3>
+        <form id="intern-form">
+          <label> Name: <input id="intern-name" type="text" required /> </label>
+          <label>
+            Email: <input id="intern-email" type="email" required />
+          </label>
+          <label>
+            Phone: <input id="intern-phone-no" type="number" required />
+          </label>
+
+          <label>Status:</label>
+          <div class="radio-group">
+            <label
+              ><input name="status" type="radio" value="active" /> Active
+            </label>
+            <label
+              ><input name="status" type="radio" value="inactive" /> InActive
+            </label>
+          </div>
+          <div class="btn-panel">
+            <button>Cancel</button>
+            <button onclick="saveForm(event,'ADD')">Add</button>
+            <button onclick="saveForm(event,'EDIT')">Update</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="intern-table-section">
+        <h3>Intern List</h3>
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </table>
+      </section>
+
+      <footer class="footer-section">
+        <span class="footer-note">
+          Copyright Reserved - Intern Management System
+        </span>
+      </footer>
+      <script>
+        let tableData = [];
+        let curInternID = 0;
+
+
+        // document.getElementById('intern-form').addEventListener('submit', function(event) {
+        function saveForm(event, actionType) {
+          event.preventDefault();          
+          executeFormActions(actionType);
+        }
+
+
+        function constructTableData(data, action) {
+            tableData.push({ ...data });
+          constructTable();
+        }
+      
+
+        // Table Actions
+        function executeTableActions(actionName,internKey){
+          if(actionName=='ADD'){
+
+          }
+          else if(actionName=='EDIT'){
+            let editRow = tableData.find((rowObj) => rowObj.id == internKey);
+            const {id,name,email,phone,status} = editRow;
+              document.getElementById('intern-name').value =name;
+              document.getElementById('intern-email').value=email;
+              document.getElementById('intern-phone-no').value=phone;
+              // document.querySelector('input[name="status"]:checked').value=status;
+
+
+          }
+
+        }
+
+
+        // FormActions
+        function executeFormActions(actionName,rowID) {          
+          if (actionName == 'ADD' || actionName == 'EDIT') {
+            let internObj = {
+              id: (actionName == 'ADD')? ++curInternID:rowID,
+              name: document.getElementById('intern-name').value,
+              email: document.getElementById('intern-email').value,
+              phone: document.getElementById('intern-phone-no').value,
+              status: document.querySelector('input[name="status"]:checked')
+                ?.value,
+            };
+            if(actionName=='ADD'){
+              tableData.push({ ...internObj });
+            }
+            else if(actionName=='Edit'){
+              let editRow = tableData.find((rowObj) => rowObj.id == rowID);
+              editRow.id =internObj.id;
+              editRow.name = internObj.name;
+              editRow.email = internObj.email;
+              editRow.phone = internObj.phone;
+            }
+
+            constructTable();
+          }
+        }
+
+        // Creating Action Button Panel
+        function createActionButtons(idVal) {
+          const editButton = document.createElement('button');
+          editButton.id = idVal;
+          editButton.textContent = 'Edit';
+
+          const deleteButton = document.createElement('button');
+          deleteButton.id = idVal;
+          deleteButton.textContent = 'Delete';
+          editButton.addEventListener('click', (event) => {
+            executeTableActions('EDIT',idVal)            
+          });
+
+          btnPanel = document.createElement('div');
+          btnPanel.appendChild(editButton);
+          btnPanel.appendChild(deleteButton);
+          return btnPanel;
+        }
+
+        // Table Construction
+        function constructTable() {
+          let tableObj = document.getElementsByTagName('table')[0];
+          tableObj.innerHTML = '';
+          
+        console.log(tableData);
+          tableData.forEach((trData) => {
+            var trObj = document.createElement('tr');
+
+            for (let key in trData) {
+              let tdObj = document.createElement('td');
+              tdObj.textContent = trData[key];
+              trObj.appendChild(tdObj);
+            }
+
+            trObj.appendChild(createActionButtons(trData.id));
+            tableObj.appendChild(trObj);
+          });
+          document.getElementById('intern-form').reset();
+        }
+
+        
+        
+      </script>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Class Selector</title>
+  <script>
+    function changeClassText() {
+      var items = document.getElementsByClassName("item");
+      items[0].innerText = "Updated using class";
+    }
+  </script>
+</head>
+<body>
+
+  <p class="item">Item 1</p>
+  <p class="item">Item 2</p>
+
+  <button onclick="changeClassText()">Change First Item</button>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QuerySelector with CSS Selectors</title>
+    <style>
+        .box { padding: 5px; border: 1px solid gray; margin: 5px; }
+    </style>
+
+    <script>
+        function runSelectors() {
+
+            // 1) ID selector
+            document.querySelector("#title").innerText = "Selected using #id";
+
+            // 2) Class selector
+            document.querySelector(".box").style.background = "lightblue";
+
+            // 3) Element selector
+            document.querySelector("h3").style.color = "red";
+
+            // 4) Descendant selector (div p)
+            document.querySelector("div p").style.color = "green";
+
+            // 5) Child selector (div > span)
+            document.querySelector("div > span").innerText = "Child span selected";
+
+            // 6) Attribute selector
+            document.querySelector("input[type='text']").value = "Attribute selector used";
+
+            // 7) Pseudo-class selector (:first-child)
+            document.querySelector("ul li:first-child").style.color = "purple";
+
+            // 8) Group selector
+            document.querySelectorAll("h3, p").forEach(function(el) {
+                el.style.fontFamily = "Arial";
+            });
+        }
+    </script>
+</head>
+<body>
+
+    <h2 id="title">Original Title</h2>
+
+    <h3>Heading 1</h3>
+    <h3>Heading 2</h3>
+
+    <div class="box">
+        <p>Paragraph inside div</p>
+        <span>Child span</span>
+    </div>
+
+    <p>Outside paragraph</p>
+
+    <input type="text" placeholder="Type here">
+
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+    </ul>
+
+    <br>
+    <button onclick="runSelectors()">Run Query Selectors</button>
+
+</body>
+</html>
