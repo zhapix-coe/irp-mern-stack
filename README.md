@@ -1,123 +1,136 @@
-🌐 Web Development Fundamentals
+
+# 🌐 Web Development Fundamentals
 
 This repository contains structured learning materials for Web Development, covering HTML, CSS, and JavaScript concepts from basic structure to DOM manipulation.
 
 It is designed for beginners who want to build a strong foundation in frontend development.
 
-📁 Project Structure
+---
+
+## Project Structure
+
+```
+
 irp-mern-stack/
 │
 └── 1.web-development/
-    │
-    ├── 1.semantic-elements/
-    ├── 2.attributes/
-    ├── 3.lists/
-    ├── 4.images-media/
-    ├── 5.css-element-id-selector/
-    ├── 6.css-class-group-selector/
-    ├── 7.css-universal-descendant-selector/
-    ├── 8.css-child-attribute-selector/
-    ├── 9.inline-internal-javascript/
-    ├── 10.external-javascript/
-    ├── 11.event-handling/
-    ├── 12.page-lifecycle/
-    ├── 13.dom-manipulation/
-    │
-    ├── workshop/
-    └── README.md
+│
+├── 1.semantic-elements/
+├── 2.attributes/
+├── 3.lists/
+├── 4.images-media/
+├── 5.css-element-id-selector/
+├── 6.css-class-group-selector/
+├── 7.css-universal-descendant-selector/
+├── 8.css-child-attribute-selector/
+├── 9.inline-internal-javascript/
+├── 10.external-javascript/
+├── 11.event-handling/
+├── 12.page-lifecycle/
+├── 13.dom-manipulation/
+│
+├── workshop/
+└── README.md
 
-📘 Topics Covered
-🌐 HTML
+````
 
-Semantic Elements
+---
 
-Attributes
+## Topics Covered
 
-Lists
+### HTML
 
-Images & Media
+- Semantic Elements
+- Attributes
+- Lists
+- Images & Media
 
-🎨 CSS
+### CSS
 
-Element Selectors
+- Element Selectors
+- ID Selectors
+- Class & Group Selectors
+- Universal & Descendant Selectors
+- Child & Attribute Selectors
 
-ID Selectors
+### JavaScript
 
-Class & Group Selectors
+- Inline & Internal JavaScript
+- External JavaScript
+- Event Handling
+- Page Lifecycle
+- DOM Manipulation
 
-Universal & Descendant Selectors
+---
 
-Child & Attribute Selectors
+## Example (DOM Manipulation)
 
-⚡ JavaScript
-
-Inline & Internal JavaScript
-
-External JavaScript
-
-Event Handling
-
-Page Lifecycle
-
-DOM Manipulation
-
-💻 Example (DOM Manipulation)
+```javascript
 document.getElementById("btn").addEventListener("click", function () {
   alert("Button Clicked!");
 });
+````
 
-🚀 How to Use
+---
+
+##  How to Use
 
 Clone the repository:
 
+```bash
 git clone https://github.com/<your-username>/irp-mern-stack.git
-
+```
 
 Navigate to the project folder:
 
+```bash
 cd 1.web-development
+```
 
-
-Open any .html file in your browser.
+Open any `.html` file in your browser.
 
 No additional installation required.
 
-🎯 Learning Objectives
+---
 
-Understand HTML document structure
+## Learning Objectives
 
-Apply CSS styling techniques
+* Understand HTML document structure
+* Apply CSS styling techniques
+* Implement JavaScript logic
+* Handle user events dynamically
+* Manipulate the DOM
 
-Implement JavaScript logic
+---
 
-Handle user events dynamically
+## Workshop
 
-Manipulate the DOM
+The `workshop/` folder contains practice exercises and mini-projects to reinforce learning.
 
-🧪 Workshop
+---
 
-The workshop/ folder contains practice exercises and mini-projects to reinforce learning.
+## Contributing
 
-🤝 Contributing
+1. Fork the repository
+2. Create a new branch
+3. Make your changes
+4. Submit a Pull Request
 
-Fork the repository
-
-Create a new branch
-
-Make your changes
-
-Submit a Pull Request
-
-📜 License
+---
+<!-->
+## License
 
 This project is licensed under the MIT License.
 
-⭐ Support
+---
+
+## Support
 
 If you find this helpful:
 
-⭐ Star the repository
+* Star the repository
+*  Fork it
+*  Share it with others
 
-🍴 Fork it
+``` -->
 
-📢 Share it with others
