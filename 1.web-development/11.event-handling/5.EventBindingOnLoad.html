@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Event Handling Demo</title>
+
+    <script>
+      // Inline / direct function calls
+      function pageLoaded() {
+        alert("Page loaded!");
+      }
+
+      function handleClick() {
+        alert("Inline click event triggered!");
+      }
+
+      function handleMouseOver() {
+        alert("Inline mouse over event!");
+      }
+
+      function handleKeyUp() {
+        alert("Inline key up event!");
+      }
+
+      function handleChange() {
+        alert("Inline change event!");
+      }
+
+      // Binding events through JavaScript
+      window.onload = function () {
+        // Button click event
+        document.getElementById("jsBtn").addEventListener("click", function () {
+          alert("JS bound click event triggered!");
+        });
+
+        // Mouse over event
+        document
+          .getElementById("jsHover")
+          .addEventListener("mouseover", function () {
+            alert("JS bound mouse over event!");
+          });
+
+        // Key up event
+        document
+          .getElementById("jsInput")
+          .addEventListener("keyup", function () {
+            alert("JS bound key up event!");
+          });
+
+        // Change event
+        document
+          .getElementById("jsSelect")
+          .addEventListener("change", function () {
+            alert("JS bound change event!");
+          });
+      };
+    </script>
+  </head>
+
+  <body onload="pageLoaded()">
+    <h2>Inline Event Handling</h2>
+
+    <button onclick="handleClick()">Inline Click</button>
+    <br /><br />
+
+    <p
+      onmouseover="handleMouseOver()"
+      style="background: #eee; padding: 10px; width: 200px"
+    >
+      Hover (Inline)
+    </p>
+    <br />
+
+    <input type="text" onkeyup="handleKeyUp()" placeholder="Type (Inline)" />
+    <br /><br />
+
+    <select onchange="handleChange()">
+      <option>Select (Inline)</option>
+      <option>HTML</option>
+      <option>JavaScript</option>
+    </select>
+
+    <hr />
+  </body>
+</html>

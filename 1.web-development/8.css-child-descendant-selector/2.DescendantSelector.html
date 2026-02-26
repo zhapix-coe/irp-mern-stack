@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Descendant Selector</title>
+    <style>
+      div > span {
+        font-size: 30px;
+      }
+
+      div span {
+        color: purple;
+      } 
+    </style>
+  </head>
+  <body>
+    <div>
+      <span>This is inside div (styled)</span>
+      <p><span>Nested child</span></p>
+    </div>
+
+    <span>This is outside div (not styled)</span>
+    
+  </body>
+</html>
