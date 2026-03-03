@@ -9,7 +9,7 @@
     <script>
 
         function calculateUnitPrice(totalPrice,totalCount){            
-            let unitPrice = totalPrice/totalCount;                                    
+            let unitPrice = Math.round(totalPrice/totalCount);                                    
             return unitPrice;            
         }
 

@@ -1,6 +1,6 @@
 function calculateUnitPrice(totalPrice, totalCount) {
     debugger;
-  let unitPrice = totalCount / totalPrice;
+  let unitPrice =  Math.round(totalPrice/totalCount);
   return unitPrice;
 }
 
