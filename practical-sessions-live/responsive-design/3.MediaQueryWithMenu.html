@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Responsive Design Demo</title>
+
+<style>
+
+body{
+  margin:0;
+  font-family:Arial;
+  text-align:center;
+}
+
+/* NAVBAR */
+
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#333;
+  padding:15px;
+  color:white;
+}
+
+.menu{
+  display:flex;
+  gap:20px;
+}
+
+.menu a{
+  color:white;
+  text-decoration:none;
+}
+
+.hamburger{
+  display:none;
+  font-size:24px;
+  cursor:pointer;
+}
+
+/* CONTENT BOXES */
+
+.container{
+  display:flex;
+  padding:20px;
+}
+
+.box{
+  flex:1;
+  margin:10px;
+  padding:40px;
+  background:orange;
+}
+
+/* TABLET VIEW */
+
+@media (max-width:768px){
+
+  body{
+    background-color:lightblue;
+  }
+
+  .container{
+    flex-direction:column;
+  }
+
+  .menu{
+    display:none;
+    flex-direction:column;
+    position:absolute;
+    background:#333;
+    top:60px;
+    left:0;
+    width:100%;
+  }
+
+  .menu.show{
+    display:flex;
+  }
+
+  .hamburger{
+    display:block;
+  }
+
+}
+
+/* MOBILE VIEW */
+
+@media (max-width:480px){
+
+  body{
+    background-color:lightgreen;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+<div>My Website</div>
+
+<div class="menu" id="menu">
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+</div>
+
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+
+</div>
+
+<!-- CONTENT -->
+
+<h2>Responsive Media Query Demo</h2>
+<p>Resize the browser window to see the responsive behavior</p>
+
+<div class="container">
+
+<div class="box">Box 1</div>
+<div class="box">Box 2</div>
+<div class="box">Box 3</div>
+
+</div>
+
+<script>
+
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("show");
+}
+
+</script>
+
+</body>
+</html>
